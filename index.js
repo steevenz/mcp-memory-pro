@@ -14,10 +14,10 @@ process.env.MCP_LOG_LEVEL = process.env.MCP_LOG_LEVEL || 'info';
 
 // Determine the correct path to src
 const possiblePaths = [
-  path.join(__dirname, '..', 'src', 'index.ts'),
-  path.join(__dirname, '..', 'src', 'index.js'),
-  path.join(process.cwd(), 'node_modules', '@steevenz', 'mcp-memory-pro', 'src', 'index.ts'),
-  path.join(process.cwd(), 'node_modules', '@steevenz', 'mcp-memory-pro', 'src', 'index.js'),
+  path.join(__dirname, 'src', 'index.ts'),
+  path.join(__dirname, 'src', 'index.js'),
+  path.join(__dirname, 'node_modules', '@steevenz', 'mcp-memory-pro', 'src', 'index.ts'),
+  path.join(__dirname, 'node_modules', '@steevenz', 'mcp-memory-pro', 'src', 'index.js'),
 ];
 
 let srcPath = null;

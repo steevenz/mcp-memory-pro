@@ -1,11 +1,11 @@
 {
   "name": "@steevenz/mcp-memory-pro",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "MCP Server with SQLite-backed knowledge graph memory",
   "license": "MIT",
   "main": "src/index.ts",
   "bin": {
-    "memory-pro": "bin/memory-pro.js"
+    "memory-pro": "index.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -31,7 +31,7 @@
   },
   "files": [
     "src",
-    "bin",
+    "index.js",
     "package.json",
     "README.md",
     "LICENSE"
