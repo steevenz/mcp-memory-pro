@@ -62,18 +62,35 @@ async function runTest() {
   // Start the server
   const serverPath = path.join(__dirname, 'dist', 'index.js');
   const useDist = process.env.MCP_TEST_USE_DIST === '1';
+  const launchMode = (process.env.MCP_TEST_LAUNCH || 'node').toLowerCase();
+  const packageDir = process.env.MCP_TEST_PACKAGE_DIR;
   const server = useDist
     ? spawn('node', [serverPath], { stdio: ['pipe', 'pipe', 'pipe'] })
-    : spawn(
-        process.execPath,
-        ['-r', 'ts-node/register/transpile-only', path.join(__dirname, 'src', 'index.ts')],
-        { stdio: ['pipe', 'pipe', 'pipe'] }
-      );
+    : launchMode === 'npx'
+      ? spawn('cmd.exe', ['/d', '/s', '/c', 'npx -y .'], { stdio: ['pipe', 'pipe', 'pipe'], cwd: __dirname })
+      : launchMode === 'installed'
+        ? (() => {
+            if (!packageDir) throw new Error('MCP_TEST_PACKAGE_DIR is required when MCP_TEST_LAUNCH=installed');
+            const entry = path.join(packageDir, 'node_modules', '@steevenz', 'mcp-memory-pro', 'index.js');
+            return spawn(process.execPath, [entry], { stdio: ['pipe', 'pipe', 'pipe'], cwd: packageDir });
+          })()
+        : spawn(
+            process.execPath,
+            ['-r', 'ts-node/register/transpile-only', path.join(__dirname, 'src', 'index.ts')],
+            { stdio: ['pipe', 'pipe', 'pipe'] }
+          );
 
   let requestId = 1;
   const responses = [];
   let stdoutBuf = '';
   let stderrBuf = '';
+  let serverExitCode = null;
+  let serverExited = false;
+
+  server.on('exit', (code) => {
+    serverExited = true;
+    serverExitCode = code;
+  });
 
   server.stdout.on('data', (data) => {
     stdoutBuf += data.toString();
@@ -84,7 +101,9 @@ async function runTest() {
       try {
         const response = JSON.parse(line);
         responses.push(response);
-        console.log(`✓ Response received: ${response.method || response.result || response.error}`);
+        if (response.error) console.log(`✓ Response received: ${JSON.stringify(response.error)}`);
+        else if (response.method) console.log(`✓ Response received: ${response.method}`);
+        else console.log(`✓ Response received: ${JSON.stringify(response.result)}`);
       } catch (e) {
         // Ignore non-JSON lines (logs)
       }
@@ -133,9 +152,20 @@ async function runTest() {
   
   // Check for errors
   const errors = responses.filter(r => r.error);
+  if (serverExited && responses.length === 0) {
+    console.log(`\n❌ Server exited before responding (exit code: ${serverExitCode})`);
+    process.exit(1);
+  }
+
+  if (responses.length < TESTS.length) {
+    console.log(`\n❌ Missing responses: expected ${TESTS.length}, got ${responses.length}`);
+    process.exit(1);
+  }
+
   if (errors.length > 0) {
     console.log(`\n❌ Errors found: ${errors.length}`);
     errors.forEach(e => console.log(`  - ${e.error?.message || JSON.stringify(e.error)}`));
+    process.exit(1);
   } else {
     console.log('\n✅ All tests passed!');
   }

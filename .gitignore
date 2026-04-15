@@ -1,6 +1,37 @@
 node_modules/
 dist/
 data/*.sqlite
+data/**/*.sqlite
+data/**/*.sqlite-wal
+data/**/*.sqlite-shm
+data/**/*.sqlite-journal
+data/**/*.db
+data/**/*.db-wal
+data/**/*.db-shm
+data/**/*.db-journal
+data/*
+!data/.gitkeep
+
+.env
+.env.*
+!.env.example
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+*.tgz
+
+coverage/
+.nyc_output/
+
+*.tsbuildinfo
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
 
 # MCP Memory Pro Cache
 .cache/memory-pro/
