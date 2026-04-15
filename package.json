@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "src/index.ts",
   "bin": {
-    "memory-pro": "./bin/memory-pro.js"
+    "memory-pro": "bin/memory-pro.js"
   },
   "engines": {
     "node": ">=18.0.0"
