@@ -1,6 +1,6 @@
 {
   "name": "@steevenz/mcp-memory-pro",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "MCP Server with SQLite-backed knowledge graph memory",
   "license": "MIT",
   "main": "dist/index.js",
