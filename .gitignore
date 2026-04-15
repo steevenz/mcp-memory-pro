@@ -1,0 +1,6 @@
+node_modules/
+dist/
+data/*.sqlite
+
+# MCP Memory Pro Cache
+.cache/memory-pro/

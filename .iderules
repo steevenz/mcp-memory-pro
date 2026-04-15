@@ -1,0 +1,14 @@
+# AI Memory Governance Entry Point
+
+This project uses a standardized AI Memory Governance protocol to ensure context retention.
+
+All AI Agents (Cursor, Trae, etc.) MUST adhere to the instructions defined in:
+[system-prompt.md](file:///c:/Users/steevenz/MCP/mcp-memory-pro/docs/rules/system-prompt.md)
+
+### 🚀 Workflow
+1.  **Read** the central memory protocol.
+2.  **Initialize** the project context via `init_project`.
+3.  **Execute** with mandatory **Perception-Action-Reflection** loop:
+    - **Perceive**: Query logs + atomic observations.
+    - **Act**: Technical implementation.
+    - **Reflect**: Log interaction, atomic facts, and increment versions.
