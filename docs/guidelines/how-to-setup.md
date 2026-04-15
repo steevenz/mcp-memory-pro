@@ -15,7 +15,7 @@ Once the package is published to npm, you can use it with any MCP-compatible cli
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "./data",
         "MCP_LOG_LEVEL": "info"
@@ -93,7 +93,7 @@ npm install
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "~/claude-memory-data",
         "MCP_LOG_LEVEL": "info"
@@ -118,7 +118,7 @@ npm install
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "./data",
         "MCP_LOG_LEVEL": "info"
@@ -144,7 +144,7 @@ npm install
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "./data",
         "MCP_LOG_LEVEL": "info"
@@ -168,7 +168,7 @@ npm install
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "./data",
         "MCP_LOG_LEVEL": "info"
@@ -189,7 +189,7 @@ For any MCP-compatible client, use this universal configuration:
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "./data",
         "MCP_LOG_LEVEL": "info"
@@ -247,7 +247,7 @@ chmod +x /path/to/mcp-memory-pro/bin/memory-pro.js
 If `npx` is not available, you can use npm directly:
 
 ```bash
-npm install -g @modelcontextprotocol/memory-pro
+npm install -g @steevenz/mcp-memory-pro
 memory-pro
 ```
 
@@ -258,7 +258,7 @@ Or use the full path to the package:
   "mcpServers": {
     "memory": {
       "command": "node",
-      "args": ["/path/to/node_modules/@modelcontextprotocol/memory-pro/bin/memory-pro.js"]
+      "args": ["/path/to/node_modules/@steevenz/mcp-memory-pro/bin/memory-pro.js"]
     }
   }
 }
@@ -314,7 +314,7 @@ Use an absolute path for the data directory to ensure it's consistent:
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "/home/user/shared-memory-data",
         "MCP_LOG_LEVEL": "info"
@@ -333,7 +333,7 @@ Enable debug logging for troubleshooting:
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "./data",
         "MCP_LOG_LEVEL": "debug"

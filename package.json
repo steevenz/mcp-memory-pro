@@ -1,6 +1,6 @@
 {
-  "name": "@modelcontextprotocol/memory-pro",
-  "version": "2.0.0",
+  "name": "@steevenz/mcp-memory-pro",
+  "version": "2.0.1",
   "description": "MCP Server with SQLite-backed knowledge graph memory",
   "license": "MIT",
   "main": "src/index.ts",
@@ -32,6 +32,8 @@
   "files": [
     "src",
     "bin",
-    "package.json"
+    "package.json",
+    "README.md",
+    "LICENSE"
   ]
 }

@@ -2,13 +2,13 @@
 
 **Production-Ready Knowledge Graph Infrastructure with Zero-Config Context Awareness.**
 
-`@modelcontextprotocol/memory-pro` is a high-performance MCP server designed to transform your IDE into an enterprise-grade second brain. By consolidating complex graph operations into **"The Big Five"** tool suite and introducing automatic project context caching, it offers a seamless, sticky memory experience for AI agents.
+`@steevenz/mcp-memory-pro` is a high-performance MCP server designed to transform your IDE into an enterprise-grade second brain. By consolidating complex graph operations into **"The Big Five"** tool suite and introducing automatic project context caching, it offers a seamless, sticky memory experience for AI agents.
 
 ---
 
 ## 🚀 Vision: Zero-Config Context
 
-Unlike standard memory servers that require manual project ID management, `@modelcontextprotocol/memory-pro` understands the filesystem.
+Unlike standard memory servers that require manual project ID management, `@steevenz/mcp-memory-pro` understands the filesystem.
 
 1.  **Init Once**: When you initialize a project, it writes a `.cache/memory-pro/project.json` file in your target project root.
 2.  **Sticky Memory**: Every subsequent tool call automatically resolves the project context by walking up the directory tree to find that cache file.
@@ -68,7 +68,7 @@ Add the following to your MCP configuration (Claude Desktop, Cursor, Windsurf, e
   "mcpServers": {
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/memory-pro"],
+      "args": ["-y", "@steevenz/mcp-memory-pro"],
       "env": {
         "MCP_DATA_DIR": "./data",
         "MCP_LOG_LEVEL": "info"
