@@ -4,3 +4,13 @@ data/*.sqlite
 
 # MCP Memory Pro Cache
 .cache/memory-pro/
+
+# AI Folders
+.windsurf/
+.cursor/
+.trae/
+.agents/
+
+# IDE Folders
+.idea/
+.vscode/
